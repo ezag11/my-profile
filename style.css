@@ -1,0 +1,302 @@
+/* Fonts: Playfair Display for titles, Poppins for texts */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap");
+
+/* ---- Colors and values in one place (CSS custom properties) ---- */
+:root {
+  --plum: #2d1e4a;
+  --violet: #6a3d8f;
+  --text: #3d3548;
+  --cream: #fff3ea;
+  --coral: #ff6f61;
+  --coral-dark: #e9564a;
+  --sun: #ffd166;
+}
+
+/* ---- General rules ---- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  background-color: var(--cream);
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--plum);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 40px;
+  margin: 0 0 8px;
+}
+
+h2 {
+  font-size: 26px;
+  margin-top: 0;
+  display: inline-block;
+  border-bottom: 3px solid var(--sun);
+  padding-bottom: 4px;
+}
+
+h2 i {
+  color: var(--coral);
+  margin-right: 10px;
+}
+
+a {
+  color: var(--coral);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #c9382b;
+}
+
+/* ---- Fixed sidebar ---- */
+.sidebar {
+  position: fixed;
+  width: 200px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  padding: 40px 20px;
+  background-color: white;
+  box-shadow: 4px 0 20px rgba(45, 30, 74, 0.08);
+}
+
+.sidebar-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--plum);
+  margin: 0 0 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0px;
+  margin: 0;
+}
+
+.sidebar li a {
+  display: block;
+  padding: 10px 0px 10px 12px;
+  color: var(--text);
+  font-weight: 400;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.sidebar li a:hover {
+  color: var(--coral);
+  border-left-color: var(--sun);
+  padding-left: 18px;
+}
+
+/* Margin so the content is not hidden by the sidebar */
+.page-content {
+  margin-left: 200px;
+}
+
+/* ---- Layout ---- */
+.container {
+  width: 700px;
+  margin: 40px auto;
+}
+
+/* ---- Banner (hero) ---- */
+.banner {
+  background-color: var(--plum);
+  /* Gradient filter: add an image after it with url('...') to put a photo below */
+  background-image: linear-gradient(135deg, rgba(45, 30, 74, 0.97) 0%, rgba(106, 61, 143, 0.92) 100%);
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0px;
+}
+
+.banner .container {
+  margin: 0px auto;
+}
+
+.banner h1 {
+  color: white;
+}
+
+.banner h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: white;
+  opacity: 0.85;
+  display: block;
+  border-bottom: none;
+  padding-bottom: 0px;
+}
+
+.banner p {
+  color: white;
+}
+
+/* Flexbox: photo on the left, text on the right */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* ---- Components ---- */
+.card-white {
+  background-color: white;
+  padding: 30px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(45, 30, 74, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-white:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(45, 30, 74, 0.16);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.img-circle {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  object-position: center 20%; /* frames the top of the photo, where the face is */
+  flex-shrink: 0;              /* keeps the circle round inside the flexbox */
+  border-radius: 50%;
+  border: 5px solid var(--sun);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Button = one base class + variants */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  margin: 6px 6px 0px 0px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--coral);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--coral-dark);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
+
+.btn-secondary:hover {
+  background-color: white;
+  color: var(--plum);
+}
+
+.list-inline {
+  list-style: none;
+  padding-left: 0px;
+  margin: 0px 0px 10px;
+}
+
+.list-inline > li {
+  display: inline;
+  padding: 0px 20px;
+}
+
+/* Grid: passions in two columns */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.passion {
+  background-color: var(--cream);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.passion:hover {
+  transform: translateY(-4px);
+  background-color: #ffe5d0;
+}
+
+.passion i {
+  display: block;
+  font-size: 30px;
+  color: var(--coral);
+  margin-bottom: 8px;
+}
+
+.passion h3 {
+  font-size: 20px;
+  margin: 0px 0px 4px;
+}
+
+.passion p {
+  font-size: 15px;
+  margin: 0px;
+}
+
+/* ---- Responsive: from the largest to the smallest ---- */
+@media (max-width: 960px) {
+  .container {
+    width: 500px;
+  }
+}
+
+@media (max-width: 720px) {
+  /* No room for the sidebar on small screens */
+  .sidebar {
+    display: none;
+  }
+  .page-content {
+    margin-left: 0px;
+  }
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 540px) {
+  .container {
+    width: 300px;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
